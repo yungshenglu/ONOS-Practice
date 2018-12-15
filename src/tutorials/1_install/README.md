@@ -8,23 +8,23 @@ We are going to install ONOS in this tutorial.
 * The following packages are reuqired:
   * git
     ```bash
-    $ sudo apt-get install git
+    $ sudo apt-get install git -y
     ```
   * zip
     ```bash
-    $ sudo apt-get install zip
+    $ sudo apt-get install zip -y
     ```
   * curl
     ```bash
-    $ sudo apt-get install curl
+    $ sudo apt-get install curl -y
     ```
   * unzip
     ```bash
-    $ sudo apt-get install unzip
+    $ sudo apt-get install unzip -y
     ```
   * Python 2.7
     ```bash
-    $ sudo apt install python2.7 python-pip
+    $ sudo apt install python2.7 python-pip -y
     ```
   * Oracle JDK8
     ```bash
@@ -83,11 +83,11 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     # Or
     $ ok [clean][debug]
     ```
-2. Use browser to open [http://localhost:8181/onos/ui](http://localhost:8181/onos/ui) 
+2. Use browser to open the ONOS GUI at [http://localhost:8181/onos/ui](http://localhost:8181/onos/ui) 
     * The default username and password is: **onos/rocks**
     ![](https://i.imgur.com/B0H79Zh.png)
+    ![](https://i.imgur.com/jw14w8f.png)
     
-
 ---
 ## 1.4 Interact with ONOS 
 
