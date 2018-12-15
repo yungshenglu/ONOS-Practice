@@ -280,6 +280,29 @@ The above code is in `SimpleForwarding.java` and the descriptions are as follow.
     ```
 
 ---
+## 3.8 Compilation
+
+1. Compile the app with Maven (take few minutes)
+    ```bash
+    # Make sure your current directory is in ./simple-forwarding/
+    $ mvn clean install
+    ```
+2. If succeed, you will get message as follow:
+    ```bash
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 3.984 s
+    [INFO] Finished at: 2018-12-15T17:34:39+08:00
+    [INFO] Final Memory: 31M/458M
+    [INFO] ------------------------------------------------------------------------
+
+    ```
+    * The compiled app will be put in `./simple-forwarding/target/`.
+3. How to activate the app with ONOS GUI?
+    Please refer to the section 2.5 in the tutorial "[Build a ONOS App With Maven](2_build/)"
+
+---
 ## References
 
 * [GitHub - opennetworkinglab/ONOS](https://github.com/opennetworkinglab/onos/tree/master)
