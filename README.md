@@ -1,6 +1,6 @@
 # ONOS Practice
 
-This repository is used to practice some basic operation in ONOS controller and the original repositroy is [here](https://github.com/opennetworkinglab/onos/tree/master).
+This repository is used to practice some basic operation in ONOS controller and the original repository is [here](https://github.com/opennetworkinglab/onos/tree/master).
 
 > The following opreation are used in **Ubuntu Linux 16.04 LTS**.
 
