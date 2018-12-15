@@ -195,7 +195,7 @@ Although we have already created the template for the repository, the descriptio
 
         yungshenglu@root > log:display
         ```
-    * Login to ONOS CLI via SSH
+    * Login to the ONOS CLI via SSH
         ```bash
         $ ssh -p 8101 onos@0.0.0.0
         Welcome to Open Network Operating System (ONOS)!

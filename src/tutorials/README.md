@@ -7,6 +7,7 @@ This directory is used for practicing ONOS.
 
 1. [Installation](1_install/)
 2. [Build a ONOS App With Maven](2_build/)
+3. [Add Flow Entry in ONOS](3_flow/)
 
 (To be updated.)
 
