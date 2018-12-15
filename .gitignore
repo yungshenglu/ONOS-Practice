@@ -46,3 +46,8 @@ buildNumber.properties
 
 # Binary files
 bin/
+
+# Config files
+.classpath
+.project
+.settings/

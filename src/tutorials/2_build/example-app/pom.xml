@@ -28,9 +28,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <onos.version>2.0.0-b1</onos.version>
-        <onos.app.name>nctu_nss.app</onos.app.name>
+        <onos.app.name>nctu_nss.example-app</onos.app.name>
         <onos.app.title>Example App</onos.app.title>
-        <onos.app.origin>nctu_nss</onos.app.origin>
+        <onos.app.origin>NCTU NSSLAB</onos.app.origin>
         <!--
         <onos.app.category>default</onos.app.category>
         <onos.app.url>http://onosproject.org</onos.app.url>

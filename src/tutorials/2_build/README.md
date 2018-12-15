@@ -1,4 +1,4 @@
-# Tutorial 2 - Build a ONOS App With Maven
+# Tutorial 2 - Build the ONOS App With Maven
 
 We are going to build ONOS App with template in this tutorial.
 
@@ -20,9 +20,10 @@ We are going to build ONOS App with template in this tutorial.
 ---
 ## 2.2 Build a template using Maven
 
-1. Change the current directory into your repository's directory
-2. Run the following command to build a template (take few minutes)
+1. Change the current directory into the place you want to place your repository
+2. Build a template with Maven (take few minutes)
     ```bash
+    # Make sure your current directory is the place you want to place your repository
     mvn archetype:generate -DarchetypeGroupId=org.onosproject -DarchetypeArtifactId=onos-bundle-archetype
     ```
 3. During the building, it may ask you set some information about this repository (e.g., maintainer, name, etc.)
@@ -62,9 +63,9 @@ Although we have already created the template for the repository, the descriptio
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <onos.version>2.0.0-b1</onos.version>
-        <onos.app.name>nctu_nss.app</onos.app.name>
+        <onos.app.name>nctu_nss.example-app</onos.app.name>
         <onos.app.title>Example App</onos.app.title>
-        <onos.app.origin>nctu_nss</onos.app.origin>
+        <onos.app.origin>NCTU NSSLAB</onos.app.origin>
         <!--
         <onos.app.category>default</onos.app.category>
         <onos.app.url>http://onosproject.org</onos.app.url>

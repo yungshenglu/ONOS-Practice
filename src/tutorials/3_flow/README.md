@@ -280,7 +280,96 @@ The above code is in `SimpleForwarding.java` and the descriptions are as follow.
     ```
 
 ---
-## 3.8 Compilation
+## 3.8 Build the ONOS app with Maven
+
+> You can refer to the tutorial "[Build a ONOS App With Maven](2_build/)"
+
+1. Build a template with Maven (take few minutes)
+    ```bash
+    # Make sure your current directory is the place you want to place your repository
+    mvn archetype:generate -DarchetypeGroupId=org.onosproject -DarchetypeArtifactId=onos-bundle-archetype
+    ```
+2. During the building, it may ask you set some information about this repository (e.g., maintainer, name, etc.)
+    * `groupid` is the name of your organization.
+    * `artifactId` is the name of this app.
+    ```bash
+    Define value for property 'groupId': nctu_nss
+    Define value for property 'artifactId': simple-forwarding
+    Define value for property 'version' 1.0-SNAPSHOT: : 
+    Define value for property 'package' nctu_nss : 
+    Confirm properties configuration:
+    groupId: nctu_nss
+    artifactId: simple-forwarding
+    version: 1.0-SNAPSHOT
+    package: nctu_nss
+     Y: : y
+    ```
+3. If succeed, you will see the following messsage:
+    ```bash
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 25.497 s
+    [INFO] Finished at: 2018-12-15T20:10:06+08:00
+    [INFO] Final Memory: 19M/310M
+    [INFO] ------------------------------------------------------------------------
+    ```
+4. Modify `pom.xml`
+    ```xml
+    <!-- The following is an example! -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <onos.version>2.0.0-b1</onos.version>
+        <onos.app.name>nctu_nss.simple-forwarding</onos.app.name>
+        <onos.app.title>Simple Forwarding</onos.app.title>
+        <onos.app.origin>NCTU NSSLAB</onos.app.origin>
+        <!--
+        <onos.app.category>default</onos.app.category>
+        <onos.app.url>http://onosproject.org</onos.app.url>
+        <onos.app.readme>ONOS OSGi bundle archetype.</onos.app.readme>
+        -->
+    </properties>
+    ```
+5. Add the following scripts in the tag `<dependencies>` of `pom.xml`
+    ```xml
+    <!-- Add the dependency here! -->
+    <dependency>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>org.apache.felix.scr.annotations</artifactId>
+        <version>1.12.0</version>
+    </dependency>
+    ```
+6. Replace the file `./simple-forwarding/src/main/java/nctu_nss/AppComponent.java` to `./SimpleForwarding.java`
+7. Rename the file `./simple-forwarding/src/test/java/nctu_nss/AppComponentTest.java` to `./simple-forwarding/src/test/java/nctu_nss/SimpleForwardingTest.java`
+8. Modify the file `./simple-forwarding/src/test/java/nctu_nss/SimpleForwardingTest.java` as follow
+    ```java
+    public class SimpleForwardingTest {
+
+        private SimpleForwarding component;
+        
+        @Before
+        public void setUp() {
+            //component = new SimpleForwarding();
+            //component.activate();
+
+        }
+
+        @After
+        public void tearDown() {
+            //component.deactivate();
+        }
+
+        @Test
+        public void basics() {
+
+        }
+
+    }
+    ```
+    * Make sure you have already commented the code in above before compiling; otherwise, the compilation may go wrong!
+
+---
+## 3.9 Compilation
 
 1. Compile the app with Maven (take few minutes)
     ```bash
@@ -296,11 +385,10 @@ The above code is in `SimpleForwarding.java` and the descriptions are as follow.
     [INFO] Finished at: 2018-12-15T17:34:39+08:00
     [INFO] Final Memory: 31M/458M
     [INFO] ------------------------------------------------------------------------
-
     ```
     * The compiled app will be put in `./simple-forwarding/target/`.
 3. How to activate the app with ONOS GUI?
-    Please refer to the section 2.5 in the tutorial "[Build a ONOS App With Maven](2_build/)"
+    Please refer to the **section 2.5** in the tutorial "[Build a ONOS App With Maven](2_build/)"
 
 ---
 ## References

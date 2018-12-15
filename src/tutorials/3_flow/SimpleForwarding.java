@@ -21,8 +21,6 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.apache.felix.scr.annotations.Deactivate;
 
-
-
 import org.onosproject.core.ApplicationId;
 import org.onosproject.core.CoreService;
 
@@ -33,22 +31,18 @@ import org.onosproject.net.packet.PacketService;
 import org.onosproject.net.packet.PacketProcessor;
 import org.onosproject.net.packet.PacketContext;
 import org.onosproject.net.packet.InboundPacket;
-import org.onlab.packet.Ethernet;
 import org.onosproject.net.Host;
 import org.onosproject.net.HostId;
 import org.onosproject.net.host.HostService;
 import org.onosproject.net.topology.TopologyService;
-
 import org.onosproject.net.flow.DefaultTrafficSelector;
 import org.onosproject.net.flow.TrafficSelector;
 import org.onosproject.net.PortNumber;
-
 import org.onosproject.net.flow.TrafficTreatment;
 import org.onosproject.net.flow.DefaultTrafficTreatment;
-
 import org.onosproject.net.flowobjective.FlowObjectiveService;
 
-
+import org.onlab.packet.Ethernet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +54,7 @@ import java.util.HashMap;
  * Skeletal ONOS application component.
  */
 @Component(immediate = true)
-public class ForwordingProject {
+public class SimpleForwarding {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
 
