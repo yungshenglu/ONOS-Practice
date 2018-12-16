@@ -235,7 +235,7 @@ Although we have already created the template for the repository, the descriptio
 * [Google Group - ONOS Developer](https://groups.google.com/a/onosproject.org/forum/#!forum/onos-dev)
 
 ---
-## Contributors
+## Contributor
 
 ONOS code is hosted and maintained using [Gerrit](https://gerrit.onosproject.org/). Code on [GitHub](https://github.com/opennetworkinglab/onos/tree/master) is only a mirror. The ONOS project does **NOT** accepte code through pull request on GitHub. To contribute to ONOS, please refer to [Sample Gerrrit Workflow](https://wiki.onosproject.org/display/ONOS/Sample+Gerrit+Workflow). It should includes most of things you'll need to get your contribution started!
 
