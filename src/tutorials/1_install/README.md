@@ -209,4 +209,4 @@ ONOS code is hosted and maintained using [Gerrit](https://gerrit.onosproject.org
 ---
 ## License
 
-ONOS (Open Network Operating System) is published under Apache License 2.0
+Apache License 2.0
