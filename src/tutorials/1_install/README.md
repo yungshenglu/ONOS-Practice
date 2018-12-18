@@ -87,7 +87,7 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     * The default username and password is: **onos/rocks**
     ![](https://i.imgur.com/B0H79Zh.png)
     ![](https://i.imgur.com/jw14w8f.png)
-    
+
 ---
 ## 1.4 Interact with ONOS 
 
@@ -101,11 +101,11 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
         / /_/ /    / /_/ /\ \     
         \____/_/|_/\____/___/     
                                 
-    Documentation: wiki.onosproject.org      
-    Tutorials:     tutorials.onosproject.org 
-    Mailing lists: lists.onosproject.org     
+    Documentation: wiki.onosproject.org
+    Tutorials:     tutorials.onosproject.org
+    Mailing lists: lists.onosproject.org
 
-    Come help out! Find out how at: contribute.onosproject.org 
+    Come help out! Find out how at: contribute.onosproject.org
 
     Hit '<tab>' for a list of available commands
     and '[cmd] --help' for help on a specific command.
@@ -149,13 +149,13 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     *** Adding controller
     Connecting to remote controller at 127.0.0.1:6653
     *** Adding hosts:
-    h1 h2 h3 h4 h5 h6 h7 h8 h9 
+    h1 h2 h3 h4 h5 h6 h7 h8 h9
     *** Adding switches:
-    s1 s2 s3 s4 
+    s1 s2 s3 s4
     *** Adding links:
     (s1, s2) (s1, s3) (s1, s4) (s2, h1) (s2, h2) (s2, h3) (s3, h4) (s3, h5) (s3, h6) (s4, h7) (s4, h8) (s4, h9) 
     *** Configuring hosts
-    h1 h2 h3 h4 h5 h6 h7 h8 h9 
+    h1 h2 h3 h4 h5 h6 h7 h8 h9
     *** Starting controller
     c0 
     *** Starting 4 switches
@@ -172,15 +172,15 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     # Ping all hosts in the Mininet topology
     mininet> pingall
     *** Ping: testing ping reachability
-    h1 -> h2 h3 h4 h5 h6 h7 h8 h9 
-    h2 -> h1 h3 h4 h5 h6 h7 h8 h9 
-    h3 -> h1 h2 h4 h5 h6 h7 h8 h9 
-    h4 -> h1 h2 h3 h5 h6 h7 h8 h9 
-    h5 -> h1 h2 h3 h4 h6 h7 h8 h9 
-    h6 -> h1 h2 h3 h4 h5 h7 h8 h9 
-    h7 -> h1 h2 h3 h4 h5 h6 h8 h9 
-    h8 -> h1 h2 h3 h4 h5 h6 h7 h9 
-    h9 -> h1 h2 h3 h4 h5 h6 h7 h8 
+    h1 -> h2 h3 h4 h5 h6 h7 h8 h9
+    h2 -> h1 h3 h4 h5 h6 h7 h8 h9
+    h3 -> h1 h2 h4 h5 h6 h7 h8 h9
+    h4 -> h1 h2 h3 h5 h6 h7 h8 h9
+    h5 -> h1 h2 h3 h4 h6 h7 h8 h9
+    h6 -> h1 h2 h3 h4 h5 h7 h8 h9
+    h7 -> h1 h2 h3 h4 h5 h6 h8 h9
+    h8 -> h1 h2 h3 h4 h5 h6 h7 h9
+    h9 -> h1 h2 h3 h4 h5 h6 h7 h8
     *** Results: 0% dropped (72/72 received)
     mininet>
     ```
@@ -189,6 +189,28 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     * Press `H` to show all hosts in topology
     * Press `P` to highlight the port of each link
     * Press `T` to change into night mode
+
+---
+## 1.7 Troubleshooting
+
+* `java.lang.RuntimeException: java.net.BindException: Address already in use`
+    ```bash
+    # Error message when running ONOS
+    ERROR | FelixStartLevel  | onos-protocols-openflow-ctl      | 170 - org.onosproject.onos-protocols-openflow-ctl - 1.12.0 | [org.onosproject.openflow.controller.impl.OpenFlowControllerImpl(155)] The activate method has thrown an exception
+    ```
+    * Solution
+        1. When running ONOS, make sure ports `6633` and `6653` are not in use. Otherwise, the ONOS may not found the the Mininet topology. To kill the process on port `6633` or `6653`, you can run the command as follow:
+            ```bash
+            $ sudo kill `sudo lsof -t -i:6633`
+            $ sudo kill `sudo lsof -t -i:6653`
+            ```
+        2. After killing the process, rerun the ONOS controller
+            ```bash
+            $ bazel run onos-local [--[clean][debug]]
+            # Or
+            $ ok [clean][debug]
+            ```
+        3. Follow the section 1.6 to run the Mininet in ONOS 
 
 ---
 ## References
