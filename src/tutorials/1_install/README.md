@@ -199,18 +199,27 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
     ERROR | FelixStartLevel  | onos-protocols-openflow-ctl      | 170 - org.onosproject.onos-protocols-openflow-ctl - 1.12.0 | [org.onosproject.openflow.controller.impl.OpenFlowControllerImpl(155)] The activate method has thrown an exception
     ```
     * Solution
-        1. When running ONOS, make sure ports `6633` and `6653` are not in use. Otherwise, the ONOS may not found the the Mininet topology. To kill the process on port `6633` or `6653`, you can run the command as follow:
+        1. You can use the following commands to see which service and process in on port `6633` and `6653`
+            ```bash
+            # View the URL listening on specific port
+            $ netstat -tupln | grep :6633
+            $ netstat -tupln | grep :6653
+            # View the process running on specific port
+            $ lsof -i:6633
+            $ lsof -i:6653
+            ```
+        2. When running ONOS, make sure ports `6633` and `6653` are not in use. Otherwise, the ONOS may not found the the Mininet topology. To kill the process on port `6633` or `6653`, you can run the command as follow:
             ```bash
             $ sudo kill `sudo lsof -t -i:6633`
             $ sudo kill `sudo lsof -t -i:6653`
             ```
-        2. After killing the process, rerun the ONOS controller
+        3. After killing the process, rerun the ONOS controller
             ```bash
             $ bazel run onos-local [--[clean][debug]]
             # Or
             $ ok [clean][debug]
             ```
-        3. Follow the section 1.6 to run the Mininet in ONOS 
+        4. Follow the section 1.6 to run the Mininet in ONOS 
 
 ---
 ## References
@@ -226,7 +235,6 @@ ONOS is built with [Bazel](https://bazel.build/), an open-source build tool deve
 ONOS code is hosted and maintained using [Gerrit](https://gerrit.onosproject.org/). Code on [GitHub](https://github.com/opennetworkinglab/onos/tree/master) is only a mirror. The ONOS project does **NOT** accepte code through pull request on GitHub. To contribute to ONOS, please refer to [Sample Gerrrit Workflow](https://wiki.onosproject.org/display/ONOS/Sample+Gerrit+Workflow). It should includes most of things you'll need to get your contribution started!
 
 * [David Lu](https://github.com/yungshenglu)
-
 
 ---
 ## License
